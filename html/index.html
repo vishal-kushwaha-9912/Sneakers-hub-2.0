@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SneakerHub - Premium Sneaker Store</title>
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome for icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <!-- Custom Styles -->
+  <link href="../css/styles.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- Navigation -->
+<header>
+  <nav class="navbar navbar-expand-lg navbar-dark container-fluid">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#home">
+        <i class="fas fa-shoe-prints"></i> SneakerHub
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#products">Shop</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          <li class="nav-item">
+            <a class="nav-link" href="#cart">
+              <i class="fas fa-shopping-cart"></i>
+              <span class="cart-badge" id="cart-count">0</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<!-- Hero Section -->
+<section id="home" class="hero">
+  <h1>Step Into The Culture</h1>
+  <p>Discover the hottest sneakers of 2025</p>
+  <a href="#products" class="btn btn-primary">
+    <i class="fas fa-shopping-bag"></i> Shop Now
+  </a>
+</section>
+
+<!-- Products Section -->
+<section id="products" class="products">
+  <div class="container">
+    <h2 class="section-title">Popular Sneakers</h2>
+    
+    <div class="row" id="products-grid">
+      <!-- Products will be loaded here by JavaScript -->
+    </div>
+  </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="about">
+  <div class="container">
+    <h2 class="section-title">About SneakerHub</h2>
+    
+    <div class="about-content">
+      <p class="about-text">
+        Where heritage meets hype, SneakerHub is built for those who live and breathe sneaker culture. 
+        From iconic classics to limited-edition drops, we bring you the most wanted sneakers from around the world.
+      </p>
+      
+      <p class="about-text">
+        We don't just sell shoes—we deliver style, confidence, and authenticity with every pair. 
+        Whether you're a collector, a trendsetter, or just starting your journey, SneakerHub is your ultimate destination.
+      </p>
+
+      <div class="about-features">
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+          <div class="feature-title">100% Authentic</div>
+          <p>Guaranteed genuine sneakers</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-truck"></i></div>
+          <div class="feature-title">Fast Delivery</div>
+          <p>Quick & reliable shipping</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-star"></i></div>
+          <div class="feature-title">Latest Releases</div>
+          <p>Hottest sneaker drops</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-lock"></i></div>
+          <div class="feature-title">Secure Payment</div>
+          <p>Safe transactions</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="contact">
+  <div class="container">
+    <h2 class="section-title">Get In Touch</h2>
+    
+    <div class="contact-container">
+      <div class="success-message" id="success-message">
+        <i class="fas fa-check-circle"></i> Thank you! Your message has been sent successfully. We'll respond within 24 hours.
+      </div>
+
+      <form id="contact-form" novalidate>
+        <div class="form-group">
+          <label for="name" class="form-label">Full Name</label>
+          <input 
+            type="text" 
+            class="form-control" 
+            id="name" 
+            placeholder="Enter your full name" 
+            required>
+          <span class="error-message" id="name-error">Please enter a valid name (at least 3 characters)</span>
+        </div>
+
+        <div class="form-group">
+          <label for="email" class="form-label">Email Address</label>
+          <input 
+            type="email" 
+            class="form-control" 
+            id="email" 
+            placeholder="your.email@example.com" 
+            required>
+          <span class="error-message" id="email-error">Please enter a valid email address</span>
+        </div>
+
+        <div class="form-group">
+          <label for="phone" class="form-label">Phone Number (Optional)</label>
+          <input 
+            type="tel" 
+            class="form-control" 
+            id="phone" 
+            placeholder="+91 1234567890">
+          <span class="error-message" id="phone-error">Please enter a valid phone number</span>
+        </div>
+
+        <div class="form-group">
+          <label for="subject" class="form-label">Subject</label>
+          <select class="form-control" id="subject" required>
+            <option value="">Select a subject</option>
+            <option value="general">General Inquiry</option>
+            <option value="complaint">Complaint</option>
+            <option value="feedback">Feedback</option>
+            <option value="order">Order Status</option>
+            <option value="collaboration">Collaboration</option>
+          </select>
+          <span class="error-message" id="subject-error">Please select a subject</span>
+        </div>
+
+        <div class="form-group">
+          <label for="message" class="form-label">Message</label>
+          <textarea 
+            class="form-control form-textarea" 
+            id="message" 
+            placeholder="Tell us what's on your mind..." 
+            required></textarea>
+          <span class="error-message" id="message-error">Message must be at least 10 characters</span>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">
+          <span id="submit-text">Send Message</span>
+          <span class="spinner" id="submit-spinner"></span>
+        </button>
+      </form>
+
+      <div class="mt-4 pt-4 border-top">
+        <h5>Other Ways to Reach Us</h5>
+        <p><i class="fas fa-envelope"></i> Email: support@sneakerhub.com</p>
+        <p><i class="fas fa-phone"></i> Phone: +91 1234567890</p>
+        <p><i class="fas fa-map-marker-alt"></i> Address: Ghaziabad, Uttar Pradesh, India</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-content">
+    <div class="footer-section">
+      <h5><i class="fas fa-shoe-prints"></i> SneakerHub</h5>
+      <p>Your ultimate destination for premium sneakers and street culture.</p>
+      <div class="social-links">
+        <a href="https://facebook.com" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+        <a href="https://instagram.com" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://twitter.com" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="https://youtube.com" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+
+    <div class="footer-section">
+      <h5>Quick Links</h5>
+      <a href="#home">Home</a>
+      <a href="#products">Shop</a>
+      <a href="#about">About Us</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+    <div class="footer-section">
+      <h5>Customer Service</h5>
+      <a href="#">Shipping Info</a>
+      <a href="#">Return Policy</a>
+      <a href="#">FAQs</a>
+      <a href="#">Track Order</a>
+    </div>
+
+    <div class="footer-section">
+      <h5>Legal</h5>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms & Conditions</a>
+      <a href="#">Cookie Policy</a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 SneakerHub. All rights reserved. | Designed by Vishal Kushwaha</p>
+  </div>
+</footer>
+
+<!-- Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+<script src="../javascript/script.js"></script>
+
+</body>
+</html>
