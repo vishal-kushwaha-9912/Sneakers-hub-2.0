@@ -8,7 +8,7 @@ const products = [
     name: "ReadTape Classic Pro",
     description: "Premium comfort with iconic style",
     price: 9999,
-    image: "../readtape01.jpg",
+    image: "readtape01.jpg",
     badge: "Limited",
   },
   {
@@ -16,7 +16,7 @@ const products = [
     name: "ReadTape Urban Runner",
     description: "Modern design meets comfort",
     price: 8999,
-    image: "../readtape02.webp",
+    image: "readtape02.webp",
     badge: "Trending",
   },
   {
@@ -24,7 +24,7 @@ const products = [
     name: "ReadTape Elite Series",
     description: "Exclusive design with premium quality",
     price: 7999,
-    image: "../readtape03.jpeg",
+    image: "readtape03.jpeg",
     badge: "Limited",
   },
   {
@@ -32,7 +32,7 @@ const products = [
     name: "ReadTape Velocity X",
     description: "High-performance street sneaker",
     price: 8499,
-    image: "../readtape04.jpeg",
+    image: "readtape04.jpeg",
     badge: "Trending",
   },
   {
@@ -40,7 +40,7 @@ const products = [
     name: "ReadTape Premium Edition",
     description: "Luxury crafted with premium materials",
     price: 10499,
-    image: "../readtape05.jpeg",
+    image: "readtape05.jpeg",
     badge: "Limited",
   },
   {
@@ -48,7 +48,7 @@ const products = [
     name: "ReadTape Street Style",
     description: "Contemporary urban aesthetic",
     price: 8799,
-    image: "../readtape06.jpeg",
+    image: "readtape06.jpeg",
     badge: "Trending",
   },
   {
@@ -56,7 +56,7 @@ const products = [
     name: "ReadTape Bold Signature",
     description: "Statement design with comfort",
     price: 9299,
-    image: "../readtape07.jpeg",
+    image: "readtape07.jpeg",
     badge: "Trending",
   },
   {
@@ -64,7 +64,7 @@ const products = [
     name: "US Polo Assn. Classic Sneaker",
     description: "Comfortable and stylish design",
     price: 10499,
-    image: "../uspolo01.jpg",
+    image: "uspolo01.jpg",
     badge: "Trending",
   },
    {
@@ -72,7 +72,7 @@ const products = [
     name: "ReadTape Core Collection",
     description: "Essential style at great value",
     price: 6999,
-    image: "../readtape08.jpeg",
+    image: "readtape08.jpeg",
     badge: "Trending",
   },
   // Add more products as needed
