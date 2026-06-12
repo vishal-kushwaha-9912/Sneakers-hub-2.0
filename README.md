@@ -57,7 +57,7 @@ SneakersHub-2.0/
 ├── js/
 │   └── script.js
 ├── Assets/
-│   ├── PhotoIMG/
+│   ├── ProductIMG/
 │   └── Screenshot's /
 ├── README.md
 └── LICENSE
