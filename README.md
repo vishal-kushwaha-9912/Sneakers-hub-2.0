@@ -239,4 +239,3 @@ Thank you for visiting **SneakersHub 2.0**.
 
 Your support, feedback, and contributions help make this project better for everyone.
 
-**Happy Coding! 🚀**
