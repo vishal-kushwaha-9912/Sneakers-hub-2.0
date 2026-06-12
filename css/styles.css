@@ -69,9 +69,10 @@ nav a:hover::after {
 
 /* Hero Section */
 .hero {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
-  
-             url('../cover.jpeg') center/cover;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../Assets/ProductIMG/cover.jpeg") center/cover no-repeat;
+
   color: white;
   padding: 100px 20px;
   text-align: center;
@@ -81,7 +82,6 @@ nav a:hover::after {
   justify-content: center;
   align-items: center;
 }
-
 .hero h1 {
   font-size: 3rem;
   font-weight: bold;
