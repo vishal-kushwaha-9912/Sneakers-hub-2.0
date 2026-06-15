@@ -1,3 +1,51 @@
+/* ============================================================================
+   CSS VARIABLES FOR THEMING
+   ============================================================================ */
+
+:root {
+  /* Light Mode Colors */
+  --bg-primary: #f8f9fa;
+  --bg-secondary: #ffffff;
+  --text-primary: #333333;
+  --text-secondary: #666666;
+  --text-tertiary: #555555;
+  --border-color: #ddd;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --shadow-color-dark: rgba(0, 0, 0, 0.2);
+  --header-bg: linear-gradient(135deg, #111 0%, #1a1a1a 100%);
+  --accent-color: #ff3c3c;
+  --accent-dark: #d32f2f;
+  --form-bg: #ffffff;
+  --form-border: #ddd;
+  --error-bg: #d4edda;
+  --error-text: #155724;
+  --error-border: #c3e6cb;
+  --success-bg: #28a745;
+  --ccc-color: #ccc;
+}
+
+/* Dark Mode Colors */
+body.dark-mode {
+  --bg-primary: #1a1a1a;
+  --bg-secondary: #242424;
+  --text-primary: #e0e0e0;
+  --text-secondary: #b0b0b0;
+  --text-tertiary: #a0a0a0;
+  --border-color: #404040;
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --shadow-color-dark: rgba(0, 0, 0, 0.5);
+  --header-bg: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 100%);
+  --accent-color: #ff5252;
+  --accent-dark: #ff7070;
+  --form-bg: #2a2a2a;
+  --form-border: #404040;
+  --error-bg: #1e4620;
+  --error-text: #a8d5a8;
+  --error-border: #2d5c2d;
+  --success-bg: #2a6a2a;
+  --ccc-color: #666;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -6,25 +54,30 @@
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f8f9fa;
-  color: #333;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Header & Navigation */
+/* ============================================================================
+   HEADER & NAVIGATION
+   ============================================================================ */
+
 header {
-  background: linear-gradient(135deg, #111 0%, #1a1a1a 100%);
+  background: var(--header-bg);
   color: white;
   padding: 1rem 0;
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 10px var(--shadow-color);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
 .navbar-brand {
   font-size: 1.8rem;
   font-weight: bold;
-  color: #ff3c3c !important;
+  color: var(--accent-color) !important;
   letter-spacing: 1px;
 }
 
@@ -40,7 +93,7 @@ nav a {
 }
 
 nav a:hover {
-  color: #ff3c3c !important;
+  color: var(--accent-color) !important;
 }
 
 nav a::after {
@@ -50,7 +103,7 @@ nav a::after {
   left: 0;
   width: 0;
   height: 2px;
-  background: #ff3c3c;
+  background: var(--accent-color);
   transition: width 0.3s ease;
 }
 
@@ -59,7 +112,7 @@ nav a:hover::after {
 }
 
 .cart-badge {
-  background: #ff3c3c;
+  background: var(--accent-color);
   color: white;
   border-radius: 50%;
   padding: 2px 6px;
@@ -67,12 +120,40 @@ nav a:hover::after {
   margin-left: 5px;
 }
 
-/* Hero Section */
+/* Dark Mode Toggle Button */
+.dark-mode-toggle {
+  background: none;
+  border: none;
+  color: white !important;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dark-mode-toggle:hover {
+  color: var(--accent-color) !important;
+}
+
+.dark-mode-toggle i {
+  transition: transform 0.3s ease;
+}
+
+body.dark-mode .dark-mode-toggle i {
+  transform: rotate(180deg);
+}
+
+/* ============================================================================
+   HERO SECTION
+   ============================================================================ */
+
 .hero {
   background:
     linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url("../Assets/ProductIMG/cover.jpeg") center/cover no-repeat;
-
   color: white;
   padding: 100px 20px;
   text-align: center;
@@ -81,7 +162,9 @@ nav a:hover::after {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  transition: all 0.3s ease;
 }
+
 .hero h1 {
   font-size: 3rem;
   font-weight: bold;
@@ -97,7 +180,7 @@ nav a:hover::after {
 }
 
 .btn-primary {
-  background: #ff3c3c !important;
+  background: var(--accent-color) !important;
   border: none !important;
   padding: 12px 30px !important;
   font-size: 1rem !important;
@@ -105,7 +188,7 @@ nav a:hover::after {
 }
 
 .btn-primary:hover {
-  background: #d32f2f !important;
+  background: var(--accent-dark) !important;
   transform: translateY(-3px);
   box-shadow: 0 5px 20px rgba(255, 60, 60, 0.4);
 }
@@ -120,10 +203,14 @@ nav a:hover::after {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Products Section */
+/* ============================================================================
+   PRODUCTS SECTION
+   ============================================================================ */
+
 .products {
   padding: 60px 20px;
-  background: white;
+  background: var(--bg-secondary);
+  transition: background-color 0.3s ease;
 }
 
 .section-title {
@@ -133,6 +220,8 @@ nav a:hover::after {
   margin-bottom: 50px;
   position: relative;
   padding-bottom: 20px;
+  color: var(--text-primary);
+  transition: color 0.3s ease;
 }
 
 .section-title::after {
@@ -143,22 +232,23 @@ nav a:hover::after {
   transform: translateX(-50%);
   width: 60px;
   height: 4px;
-  background: #ff3c3c;
+  background: var(--accent-color);
   border-radius: 2px;
 }
 
 .product-card {
-  background: white;
+  background: var(--bg-secondary);
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 15px var(--shadow-color);
   transition: all 0.3s ease;
   height: 100%;
+  border: 1px solid var(--border-color);
 }
 
 .product-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 30px var(--shadow-color-dark);
 }
 
 .product-image {
@@ -167,6 +257,7 @@ nav a:hover::after {
   object-fit: cover;
   position: relative;
   overflow: hidden;
+  transition: transform 0.3s ease;
 }
 
 .product-image:hover {
@@ -177,7 +268,7 @@ nav a:hover::after {
   position: absolute;
   top: 10px;
   right: 10px;
-  background: #ff3c3c;
+  background: var(--accent-color);
   color: white;
   padding: 5px 10px;
   border-radius: 20px;
@@ -193,26 +284,29 @@ nav a:hover::after {
   font-size: 1.1rem;
   font-weight: bold;
   margin-bottom: 10px;
-  color: #111;
+  color: var(--text-primary);
+  transition: color 0.3s ease;
 }
 
 .product-description {
-  color: #666;
+  color: var(--text-secondary);
   font-size: 0.9rem;
   margin-bottom: 15px;
+  transition: color 0.3s ease;
 }
 
 .product-price {
   font-size: 1.3rem;
   font-weight: bold;
-  color: #ff3c3c;
+  color: var(--accent-color);
   margin-bottom: 15px;
+  transition: color 0.3s ease;
 }
 
 .product-button {
   width: 100%;
-  background: #111;
-  color: white;
+  background: var(--text-primary);
+  color: var(--bg-secondary);
   border: none;
   padding: 10px;
   border-radius: 5px;
@@ -222,14 +316,19 @@ nav a:hover::after {
 }
 
 .product-button:hover {
-  background: #ff3c3c;
+  background: var(--accent-color);
+  color: white;
   transform: scale(1.05);
 }
 
-/* About Section */
+/* ============================================================================
+   ABOUT SECTION
+   ============================================================================ */
+
 .about {
   padding: 60px 20px;
-  background: #f8f9fa;
+  background: var(--bg-primary);
+  transition: background-color 0.3s ease;
 }
 
 .about-content {
@@ -240,8 +339,9 @@ nav a:hover::after {
 .about-text {
   font-size: 1.1rem;
   line-height: 1.8;
-  color: #555;
+  color: var(--text-tertiary);
   margin-bottom: 30px;
+  transition: color 0.3s ease;
 }
 
 .about-features {
@@ -252,28 +352,47 @@ nav a:hover::after {
 }
 
 .feature-card {
-  background: white;
+  background: var(--bg-secondary);
   padding: 20px;
   border-radius: 8px;
   text-align: center;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 10px var(--shadow-color);
+  transition: all 0.3s ease;
+  border: 1px solid var(--border-color);
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 20px var(--shadow-color-dark);
 }
 
 .feature-icon {
   font-size: 2.5rem;
-  color: #ff3c3c;
+  color: var(--accent-color);
   margin-bottom: 10px;
+  transition: color 0.3s ease;
 }
 
 .feature-title {
   font-weight: bold;
   margin-bottom: 10px;
+  color: var(--text-primary);
+  transition: color 0.3s ease;
 }
 
-/* Contact Section */
+.feature-card p {
+  color: var(--text-secondary);
+  transition: color 0.3s ease;
+}
+
+/* ============================================================================
+   CONTACT SECTION
+   ============================================================================ */
+
 .contact {
   padding: 60px 20px;
-  background: white;
+  background: var(--bg-secondary);
+  transition: background-color 0.3s ease;
 }
 
 .contact-container {
@@ -288,20 +407,25 @@ nav a:hover::after {
 .form-label {
   font-weight: 600;
   margin-bottom: 8px;
-  color: #111;
+  color: var(--text-primary);
+  transition: color 0.3s ease;
 }
 
 .form-control {
   padding: 12px;
-  border: 1px solid #ddd;
+  border: 1px solid var(--form-border);
   border-radius: 5px;
   font-size: 1rem;
   transition: all 0.3s ease;
+  background: var(--form-bg);
+  color: var(--text-primary);
 }
 
 .form-control:focus {
-  border-color: #ff3c3c;
+  border-color: var(--accent-color);
   box-shadow: 0 0 0 0.2rem rgba(255, 60, 60, 0.25);
+  background: var(--form-bg);
+  color: var(--text-primary);
 }
 
 .form-textarea {
@@ -325,13 +449,14 @@ nav a:hover::after {
 }
 
 .success-message {
-  background: #d4edda;
-  color: #155724;
+  background: var(--error-bg);
+  color: var(--error-text);
   padding: 15px;
   border-radius: 5px;
   margin-bottom: 20px;
   display: none;
-  border: 1px solid #c3e6cb;
+  border: 1px solid var(--error-border);
+  transition: all 0.3s ease;
 }
 
 .success-message.show {
@@ -339,11 +464,30 @@ nav a:hover::after {
   animation: slideUp 0.5s ease;
 }
 
-/* Footer */
+.contact h5 {
+  color: var(--text-primary);
+  transition: color 0.3s ease;
+}
+
+.contact p {
+  color: var(--text-secondary);
+  transition: color 0.3s ease;
+}
+
+.border-top {
+  border-color: var(--border-color) !important;
+  transition: border-color 0.3s ease;
+}
+
+/* ============================================================================
+   FOOTER
+   ============================================================================ */
+
 footer {
-  background: linear-gradient(135deg, #111 0%, #1a1a1a 100%);
+  background: var(--header-bg);
   color: white;
   padding: 40px 20px;
+  transition: background 0.3s ease;
 }
 
 .footer-content {
@@ -358,12 +502,12 @@ footer {
 .footer-section h5 {
   font-weight: bold;
   margin-bottom: 15px;
-  color: #ff3c3c;
+  color: var(--accent-color);
 }
 
 .footer-section p,
 .footer-section a {
-  color: #ccc;
+  color: var(--ccc-color);
   font-size: 0.9rem;
   margin-bottom: 8px;
   text-decoration: none;
@@ -371,7 +515,7 @@ footer {
 }
 
 .footer-section a:hover {
-  color: #ff3c3c;
+  color: var(--accent-color);
 }
 
 .social-links {
@@ -392,7 +536,7 @@ footer {
 }
 
 .social-links a:hover {
-  background: #ff3c3c;
+  background: var(--accent-color);
   transform: translateY(-5px);
 }
 
@@ -401,9 +545,14 @@ footer {
   border-top: 1px solid #333;
   padding-top: 20px;
   color: #999;
+  border-color: var(--border-color);
+  transition: border-color 0.3s ease;
 }
 
-/* Loading Animation */
+/* ============================================================================
+   LOADING ANIMATION
+   ============================================================================ */
+
 .spinner {
   display: none;
   width: 20px;
@@ -422,7 +571,43 @@ footer {
   display: inline-block;
 }
 
-/* Responsive */
+/* ============================================================================
+   TOAST NOTIFICATION
+   ============================================================================ */
+
+.toast-notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: var(--success-bg);
+  color: white;
+  padding: 15px 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 15px var(--shadow-color-dark);
+  z-index: 2000;
+  animation: slideInRight 0.3s ease;
+  max-width: 300px;
+  transition: all 0.3s ease;
+}
+
+.toast-notification.error {
+  background: #dc3545;
+}
+
+@keyframes slideInRight {
+  from { transform: translateX(400px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideOutRight {
+  from { transform: translateX(0); opacity: 1; }
+  to { transform: translateX(400px); opacity: 0; }
+}
+
+/* ============================================================================
+   RESPONSIVE DESIGN
+   ============================================================================ */
+
 @media (max-width: 768px) {
   .hero h1 {
     font-size: 2rem;
@@ -447,28 +632,10 @@ footer {
   .footer-content {
     grid-template-columns: 1fr;
   }
-}
 
-/* Toast Notification */
-.toast-notification {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  background: #28a745;
-  color: white;
-  padding: 15px 20px;
-  border-radius: 5px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  z-index: 2000;
-  animation: slideInRight 0.3s ease;
-  max-width: 300px;
-}
-
-.toast-notification.error {
-  background: #dc3545;
-}
-
-@keyframes slideInRight {
-  from { transform: translateX(400px); opacity: 0; }
-  to { transform: translateX(0); opacity: 1; }
+  .toast-notification {
+    left: 20px;
+    right: 20px;
+    max-width: none;
+  }
 }

@@ -175,7 +175,6 @@ Every contribution matters!
 * Payment Integration
 * Backend API
 * Database Support
-* Dark Mode
 * Admin Dashboard
 
 ---
