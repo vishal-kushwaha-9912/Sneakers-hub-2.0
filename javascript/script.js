@@ -1,6 +1,6 @@
-// ============================================================================
+// /
 // Dark Mode Management 🌙
-// ============================================================================
+// /
 
 const DarkModeManager = {
   STORAGE_KEY: 'sneakerhub_dark_mode',
@@ -66,9 +66,9 @@ const DarkModeManager = {
   }
 };
 
-// ============================================================================
+// /
 // Product Data & Configuration 📊📈📊
-// ============================================================================
+// /
 
 const PRODUCTS = [
   {
@@ -148,9 +148,9 @@ const PRODUCTS = [
 const STORAGE_KEY = "sneakerhub_cart";
 const NOTIFICATION_DURATION = 3000;
 
-// ============================================================================
+// /
 // Cart Management Module 🛒🛒
-// ============================================================================
+// /
 
 const CartManager = {
   // Initialize cart from localStorage
@@ -228,9 +228,9 @@ const CartManager = {
   },
 };
 
-// ============================================================================
+// /
 // Product Display Module
-// ============================================================================
+// /
 
 const ProductManager = {
   // Load and display products
@@ -312,9 +312,9 @@ const ProductManager = {
   },
 };
 
-// ============================================================================
+// /
 // Form Validation Module
-// ============================================================================
+// /
 
 const FormValidator = {
   // Validation rules
@@ -371,9 +371,9 @@ const FormValidator = {
   },
 };
 
-// ============================================================================
+// /
 // Notification System
-// ============================================================================
+// /
 
 function showNotification(message, type = "success") {
   const notification = document.createElement("div");
@@ -399,9 +399,9 @@ function showNotification(message, type = "success") {
   }, NOTIFICATION_DURATION);
 }
 
-// ============================================================================
+// /
 // Form Handling
-// ============================================================================
+// /
 
 function initializeForm() {
   const contactForm = document.getElementById("contact-form");
@@ -499,9 +499,9 @@ async function handleFormSubmit(e) {
   }
 }
 
-// ============================================================================
+// /
 // Smooth Scrolling
-// ============================================================================
+// /
 
 function initializeSmoothScroll() {
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
@@ -522,9 +522,9 @@ function initializeSmoothScroll() {
   });
 }
 
-// ============================================================================
+// /
 // Initialization 😎
-// ============================================================================
+// /
 
 function init() {
   // Check if DOM is loaded
