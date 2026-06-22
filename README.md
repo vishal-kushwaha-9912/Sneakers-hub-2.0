@@ -2,7 +2,7 @@
 
 > A modern, responsive, and interactive sneaker showcase website built with HTML, CSS, and JavaScript.
 
-![SneakersHub Banner](assets/banner.png)
+![SneakersHub Banner](/banner.png)
 
 ## 🌐 Live Demo
 
