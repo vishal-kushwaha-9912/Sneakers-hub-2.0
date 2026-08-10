@@ -1,17 +1,31 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SneakerHub - Premium Sneaker Store</title>
-  
-<!-- Bootstrap CSS -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-<!-- Font Awesome for icons -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-<!-- Custom Styles -->
-<link href="css/styles.css" rel="stylesheet"></head>
+  <meta name="description" content="SneakerHub is your destination for premium, authentic sneakers. Shop the latest drops, classics, and limited editions with fast delivery across India.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="SneakerHub - Premium Sneaker Store">
+  <meta property="og:description" content="Discover the hottest sneakers of 2025. 100% authentic, fast delivery, secure payment.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="Assets/ProductIMG/cover.jpeg">
+
+  <!-- Favicon (inline SVG so no extra file is needed) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%91%9F%3C/text%3E%3C/svg%3E">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome for icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <!-- Custom Styles -->
+  <link href="css/styles.css" rel="stylesheet">
+</head>
 <body>
+
+<!-- Skip link for keyboard / screen-reader users -->
+<a href="#home" class="skip-link">Skip to main content</a>
 
 <!-- Navigation -->
 <header>
@@ -24,19 +38,25 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
           <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
           <li class="nav-item"><a class="nav-link" href="#products">Shop</a></li>
           <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
           <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
           <li class="nav-item">
-            <a class="nav-link" href="#cart">
-              <i class="fas fa-shopping-cart"></i>
-              <span class="cart-badge" id="cart-count">0</span>
-            </a>
+            <button class="nav-link icon-btn" id="wishlist-toggle" title="View wishlist" aria-haspopup="dialog">
+              <i class="fas fa-heart"></i>
+              <span class="cart-badge" id="wishlist-count">0</span>
+            </button>
           </li>
           <li class="nav-item">
-            <button class="nav-link dark-mode-toggle" id="dark-mode-toggle" title="Toggle dark mode">
+            <button class="nav-link icon-btn" id="cart-toggle" title="View cart" aria-haspopup="dialog">
+              <i class="fas fa-shopping-cart"></i>
+              <span class="cart-badge" id="cart-count">0</span>
+            </button>
+          </li>
+          <li class="nav-item">
+            <button class="nav-link icon-btn dark-mode-toggle" id="dark-mode-toggle" title="Toggle dark mode">
               <i class="fas fa-moon"></i>
             </button>
           </li>
@@ -48,6 +68,7 @@
 
 <!-- Hero Section -->
 <section id="home" class="hero">
+  <span class="hero-eyebrow">New Season Drops</span>
   <h1>Step Into The Culture</h1>
   <p>Discover the hottest sneakers of 2025</p>
   <a href="#products" class="btn btn-primary">
@@ -58,50 +79,73 @@
 <!-- Products Section -->
 <section id="products" class="products">
   <div class="container">
-    <h2 class="section-title">Popular Sneakers</h2>
-    
-    <div class="row" id="products-grid">
-      <!-- Products will be loaded here by JavaScript -->
+    <h2 class="section-title reveal">Popular Sneakers</h2>
+
+    <!-- Search, Filter & Sort Toolbar -->
+    <div class="shop-toolbar reveal">
+      <div class="search-box">
+        <i class="fas fa-search" aria-hidden="true"></i>
+        <input type="search" id="product-search" placeholder="Search sneakers..." aria-label="Search sneakers">
+      </div>
+
+      <div class="filter-group" id="category-filters" role="group" aria-label="Filter by category">
+        <button class="filter-chip active" data-category="all" type="button">All</button>
+      </div>
+
+      <select id="sort-select" class="sort-select" aria-label="Sort products">
+        <option value="default">Sort: Featured</option>
+        <option value="price-asc">Price: Low to High</option>
+        <option value="price-desc">Price: High to Low</option>
+        <option value="name-asc">Name: A to Z</option>
+      </select>
     </div>
+
+    <div class="row" id="products-grid">
+                           <!-- Products will be loaded here by JavaScript -->
+    </div>
+
+    <p class="no-results" id="no-results" hidden>
+      <i class="fas fa-shoe-prints"></i> No sneakers match your search. Try a different keyword or filter.
+    </p>
   </div>
 </section>
 
 <!-- About Section -->
 <section id="about" class="about">
   <div class="container">
-    <h2 class="section-title">About SneakerHub</h2>
-    
+    <h2 class="section-title reveal">About SneakerHub</h2>
+
     <div class="about-content">
-      <p class="about-text">
-        Where heritage meets hype, SneakerHub is built for those who live and breathe sneaker culture. 
+      <p class="about-text reveal">
+        Where heritage meets hype, SneakerHub is built for those who live and breathe sneaker culture.
         From iconic classics to limited-edition drops, we bring you the most wanted sneakers from around the world.
       </p>
-      
-      <p class="about-text">
-        We don't just sell shoes—we deliver style, confidence, and authenticity with every pair. 
+
+      <p class="about-text reveal">
+        We don't just sell shoes—we deliver style, confidence, and authenticity with every pair.
         Whether you're a collector, a trendsetter, or just starting your journey, SneakerHub is your ultimate destination.
       </p>
 
       <div class="about-features">
-        <div class="feature-card">
+        <div class="feature-card reveal">
           <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
           <div class="feature-title">100% Authentic</div>
           <p>Guaranteed genuine sneakers</p>
         </div>
-        
-        <div class="feature-card">
+
+        <div class="feature-card reveal">
           <div class="feature-icon"><i class="fas fa-truck"></i></div>
           <div class="feature-title">Fast Delivery</div>
           <p>Quick & reliable shipping</p>
         </div>
-        
-        <div class="feature-card">
+
+        <div class="feature-card reveal">
           <div class="feature-icon"><i class="fas fa-star"></i></div>
           <div class="feature-title">Latest Releases</div>
           <p>Hottest sneaker drops</p>
         </div>
-        
-        <div class="feature-card">
+
+        <div class="feature-card reveal">
           <div class="feature-icon"><i class="fas fa-lock"></i></div>
           <div class="feature-title">Secure Payment</div>
           <p>Safe transactions</p>
@@ -111,11 +155,53 @@
   </div>
 </section>
 
+<!-- Testimonials Section -->
+<section id="testimonials" class="testimonials">
+  <div class="container">
+    <h2 class="section-title reveal">What Sneakerheads Say</h2>
+
+    <div class="testimonial-grid">
+      <div class="testimonial-card reveal">
+        <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <p>"Copped the ReadTape Velocity X and the fit is perfect. Delivery was quicker than I expected."</p>
+        <div class="testimonial-author">— Aarav M.</div>
+      </div>
+
+      <div class="testimonial-card reveal">
+        <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <p>"Finally a store that actually ships authentic pairs. The Elite Series is now my daily driver."</p>
+        <div class="testimonial-author">— Priya S.</div>
+      </div>
+
+      <div class="testimonial-card reveal">
+        <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+        <p>"Great range of limited drops. Wishlist feature makes it easy to track what I want next."</p>
+        <div class="testimonial-author">— Kabir R.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Newsletter Section -->
+<section id="newsletter" class="newsletter">
+  <div class="container newsletter-inner reveal">
+    <div>
+      <h2>Never Miss A Drop</h2>
+      <p>Get early access to new releases, restocks, and exclusive offers.</p>
+    </div>
+    <form id="newsletter-form" class="newsletter-form" novalidate>
+      <label for="newsletter-email" class="visually-hidden">Email address</label>
+      <input type="email" id="newsletter-email" placeholder="Enter your email" required>
+      <button type="submit">Subscribe</button>
+    </form>
+  </div>
+</section>
+
 <!-- Contact Section -->
 <section id="contact" class="contact">
   <div class="container">
-    <h2 class="section-title">Get In Touch</h2>
-    
+    <h2 class="section-title reveal">Get In Touch</h2>
+
     <div class="contact-container">
       <div class="success-message" id="success-message">
         <i class="fas fa-check-circle"></i> Thank you! Your message has been sent successfully. We'll respond within 24 hours.
@@ -200,10 +286,10 @@
       <h5><i class="fas fa-shoe-prints"></i> SneakerHub</h5>
       <p>Your ultimate destination for premium sneakers and street culture.</p>
       <div class="social-links">
-        <a href="https://facebook.com" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
-        <a href="https://instagram.com" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-        <a href="https://twitter.com" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
-        <a href="https://youtube.com" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+        <a href="https://facebook.com" target="_blank" rel="noopener" title="Facebook"><i class="fab fa-facebook"></i></a>
+        <a href="https://instagram.com" target="_blank" rel="noopener" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://twitter.com" target="_blank" rel="noopener" title="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="https://youtube.com" target="_blank" rel="noopener" title="YouTube"><i class="fab fa-youtube"></i></a>
       </div>
     </div>
 
@@ -235,6 +321,52 @@
     <p>&copy; 2025 SneakerHub. All rights reserved. | Designed by Vishal Kushwaha</p>
   </div>
 </footer>
+
+<!-- Back to top button -->
+<button id="back-to-top" class="back-to-top" title="Back to top" aria-label="Back to top">
+  <i class="fas fa-arrow-up"></i>
+</button>
+
+<!-- Cart Drawer -->
+<div class="drawer-overlay" id="drawer-overlay"></div>
+
+<aside class="cart-drawer" id="cart-drawer" role="dialog" aria-modal="true" aria-labelledby="cart-drawer-title">
+  <div class="drawer-header">
+    <h3 id="cart-drawer-title"><i class="fas fa-shopping-cart"></i> Your Cart</h3>
+    <button class="drawer-close" id="cart-close" aria-label="Close cart">&times;</button>
+  </div>
+  <div class="drawer-body" id="cart-items">
+    <!-- Cart items rendered by JS -->
+  </div>
+  <div class="drawer-footer">
+    <div class="drawer-total">
+      <span>Subtotal</span>
+      <span id="cart-total">₹0</span>
+    </div>
+    <button class="btn btn-primary w-100" id="checkout-btn">Checkout</button>
+  </div>
+</aside>
+
+<!-- Wishlist Drawer -->
+<aside class="cart-drawer" id="wishlist-drawer" role="dialog" aria-modal="true" aria-labelledby="wishlist-drawer-title">
+  <div class="drawer-header">
+    <h3 id="wishlist-drawer-title"><i class="fas fa-heart"></i> Your Wishlist</h3>
+    <button class="drawer-close" id="wishlist-close" aria-label="Close wishlist">&times;</button>
+  </div>
+  <div class="drawer-body" id="wishlist-items">
+    <!-- Wishlist items rendered by JS -->
+  </div>
+</aside>
+
+<!-- Quick View Modal -->
+<div class="quickview-overlay" id="quickview-overlay">
+  <div class="quickview-modal" role="dialog" aria-modal="true" aria-labelledby="quickview-title">
+    <button class="drawer-close" id="quickview-close" aria-label="Close quick view">&times;</button>
+    <div class="quickview-body" id="quickview-body">
+      <!-- Product details rendered by JS -->
+    </div>
+  </div>
+</div>
 
 <!-- Scripts -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
